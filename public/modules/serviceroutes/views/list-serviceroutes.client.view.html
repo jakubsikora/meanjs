@@ -1,0 +1,19 @@
+<section data-ng-controller="ServiceroutesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Serviceroutes</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="serviceroute in serviceroutes" data-ng-href="#!/serviceroutes/{{serviceroute._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="serviceroute.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="serviceroute.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="serviceroute.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!serviceroutes.$resolved || serviceroutes.length">
+    	No Serviceroutes yet, why don't you <a href="/#!/serviceroutes/create">create one</a>?
+    </div>
+</section>
